@@ -43,13 +43,13 @@ function App() {
 
   //Dark Mode button Css
   let mycss = {
-    marginLeft : '90px',
+    marginLeft : '20vh',
     marginTop : '20px'
   }
 
   return (
     <>
-      <div style={style}>
+      <body style={style}>
         <Navbar title = "ReactApp" navMode = {navmod} />
         <div className="form-check form-switch" style={mycss}>
           <input className="form-check-input" type="checkbox" onClick={handleDarkMode} role="switch" id="flexSwitchCheckDefault"/>
@@ -58,7 +58,7 @@ function App() {
         <div className='container my-4'>
         <TextForm heading = "Enter your text to Analyze below"/>
         </div>
-      </div>
+      </body>
     </>
   );
 }

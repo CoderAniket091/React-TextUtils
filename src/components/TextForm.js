@@ -8,16 +8,6 @@ export default function TextForm(props) {
         
     }
 
-    //Handling Lowercase Button Click
-    const handleLowClick = ()=>{
-        setText(text.toLowerCase());
-    }
-
-    //Handling Clear Text Button Click
-    const handleClearText = ()=>{
-        setText("");
-    }
-
     //Handling Capitalized Case Button Click
     const handleCapClick = ()=>{
         var newLine = text[0].toUpperCase()
@@ -33,6 +23,24 @@ export default function TextForm(props) {
         }
         setText(newLine)
     }
+
+    //Handling Copy Button Click
+    const handleCopy = ()=>{
+        var text = document.getElementById("exampleFormControlTextarea1");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+
+    //Handling Lowercase Button Click
+    const handleLowClick = ()=>{
+        setText(text.toLowerCase());
+    }
+
+    //Handling Clear Text Button Click
+    const handleClearText = ()=>{
+        setText("");
+    }
+
 
     //Handling On Change
     const handleOnChange = (event)=>{
@@ -68,6 +76,7 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1" onClick={handleUpClick}>UPPERCASE</button>
                 <button className="btn btn-primary mx-1" onClick={handleLowClick}>lowercase</button>
                 <button className="btn btn-primary mx-1" onClick={handleCapClick}>Capitalized</button>
+                <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy</button>
                 <button className="btn btn-danger mx-1" onClick={handleClearText}>Clear</button>
             </div>
 
@@ -75,8 +84,8 @@ export default function TextForm(props) {
                 <h2>Your Text Summary</h2>
                 <p>{wcnt} words and {cnt} Characters</p>
                 <p>{0.008 * wcnt} Minutes to read</p>
-                <h2>Preview</h2>
-                <p>{text}</p>
+                {/* <h2>Preview</h2>
+                <p>{text}</p> */}
             </div>
         </>
     );
