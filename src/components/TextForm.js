@@ -29,6 +29,7 @@ export default function TextForm(props) {
         var text = document.getElementById("exampleFormControlTextarea1");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text Copied to clipboard", "success")
     }
 
     //Handling Lowercase Button Click
@@ -68,16 +69,16 @@ export default function TextForm(props) {
     };
     return (
         <>
-            <div className='container'>
+            <div className='container my-4'>
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
                     <textarea className="form-control" onChange={handleOnChange} value={text}       id="exampleFormControlTextarea1" rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={handleUpClick}>UPPERCASE</button>
-                <button className="btn btn-primary mx-1" onClick={handleLowClick}>lowercase</button>
-                <button className="btn btn-primary mx-1" onClick={handleCapClick}>Capitalized</button>
-                <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy</button>
-                <button className="btn btn-danger mx-1" onClick={handleClearText}>Clear</button>
+                <button className={`btn btn-outline-${props.btntype} mx-2`} onClick={handleUpClick}>UPPERCASE</button>
+                <button className={`btn btn-outline-${props.btntype} mx-2`} onClick={handleLowClick}>lowercase</button>
+                <button className={`btn btn-outline-${props.btntype} mx-2`} onClick={handleCapClick}>Capitalized</button>
+                <button className={`btn btn-outline-${props.btntype} mx-2`} onClick={handleCopy}>Copy</button>
+                <button className={`btn btn-outline-${props.btntype} mx-2`} onClick={handleClearText}>Clear</button>
             </div>
 
             <div className="container my-3">
